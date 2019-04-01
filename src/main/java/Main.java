@@ -2,9 +2,11 @@ import java.util.Set;
 import java.util.HashSet;
 
 
-public class Main {
+public class Main implements Task1 {
 
   public static void main(String[] args) {
+
+    Main task = new Main();
 
     HashSet<Integer> first = new HashSet<>();
 
@@ -26,13 +28,23 @@ public class Main {
 
     //TODO: test your implementation here
 
+    System.out.println("Пересечение двух множеств: " + task.intersection(first,second));
+
+    System.out.println("Объединение двух множеств: " + task.union(first,second));
+
+  }
+
+  @Override
+  public Set<Integer> intersection(Set<Integer> first, Set<Integer> second) {
     Set<Integer> intersection = new HashSet<>(first);
     intersection.retainAll(second);
-    System.out.println("Пересечение двух множеств: " + intersection);
+    return intersection;
+  }
 
+  @Override
+  public Set<Integer> union(Set<Integer> first, Set<Integer> second) {
     Set<Integer> union = new HashSet<>(first);
     union.addAll(second);
-    System.out.println("Объединение двух множеств: " + union);
-
+    return union;
   }
 }
